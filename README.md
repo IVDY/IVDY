@@ -1,14 +1,26 @@
-- 👋 Hi, I’m @IVDY
-- 👀 I’m bringing Excellent Healthcare to Everyone with One Click
-- 📙 I'm building a decentralized medical database on a blockchain...
-- 🏥 I’m currently learning to predict diseases with an accuracy of 95%...
-- 💞️ I’m looking to collaborate with Global Social Impact/Medical Care Networks who work with electronic health records such as Hospitals, Clinics, Care Centers, Electronic Health Record Vendors and more...
-- 📫 How to reach me: info@ivdygroup.com 
+👋 Hi, we are @IVDYGroup
 
-🦄 IVDY - The Power of Artificial Intelligence Brought to Healthcare!  
-Empower Patients and Doctors to Use A.I. to Make the Most Informed Decisions to Give Worldclass Care and Save More Lives!
+🏙️ From the coal capital to the data capital – based in Essen, Germany, IVDY Group is a full-service Research & Development Institute shaping the future of digital health, electric mobility, and smart agriculture.
 
-<!---
-IVDY/IVDY is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+🚀 Our Production
+
+🧠 IVDY
+AI-powered early detection of heart and vascular diseases for women and men from the age of 20.
+📱 Smartphone-based diagnostics, painless blood collection, and high precision analysis – available worldwide.
+🔗 The decentralized medical platform – your intelligent doctor on the go.
+
+⚡ EULE
+The fastest electric race car from 0 to 100 km/h in 1.5 seconds, with optimized battery performance.
+🏎️ High-performance engineering meets sustainable energy – born for innovation.
+
+🌾 TAVLIM
+Revolutionizing agriculture and drone systems with ecological intelligence.
+🌱 Smart farming, organic cultivation, and aerial analytics – from hazelnuts to halal livestock.
+🌍 Tradition meets high-tech – engineered in Germany, grown in Turkey.
+
+🌍 Let’s Collaborate
+
+We partner with:
+🏥 Hospitals • Clinics • Research Labs • EHR Vendors • AgriTech & Mobility Innovators • Global Health Networks
+
+📫 Reach us at: info@ivdygroup.de
