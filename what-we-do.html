@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What We Do | IVDY Group</title>
+  <title>Was wir tun | IVDY Group</title>
   <style>
     * {
       margin: 0;
@@ -73,8 +73,9 @@
       justify-content: space-between;
     }
     .service-category img {
-      width: 60px;
-      height: 60px;
+      --icon-size: 60px; /* Define the icon size variable here */
+      width: var(--icon-size); /* Use the variable for width */
+      height: var(----icon-size); /* Use the variable for height */
       margin-bottom: 20px;
       display: block;
       margin-left: auto;
@@ -233,7 +234,7 @@
   <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
-      pageLanguage: 'en',
+      pageLanguage: 'de', // Changed default language to German
       includedLanguages: 'en,de,tr,fr,es,it',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
       }, 'google_translate_element');
@@ -242,31 +243,31 @@
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <header>
-    <h1>WHAT WE DO</h1>
-    <p>Our Core Expertise</p>
+    <h1>WAS WIR TUN</h1>
+    <p>Unsere Kernkompetenzen</p>
   </header>
 
   <section>
     <div class="service-category">
       <img src="tech.png" alt="Tech Icon">
-      <h3>Tech</h3>
+      <h3>Technologie</h3>
       <ul>
-        <li>AI Development</li>
-        <li>AI Applications</li>
-        <li>AI Chatbots</li>
-        <li>AI Integration</li>
-        <li>AI Model Fine-tuning</li>
+        <li>KI-Entwicklung</li>
+        <li>KI-Anwendungen</li>
+        <li>KI-Chatbots</li>
+        <li>KI-Integration</li>
+        <li>KI-Modell-Feinabstimmung</li>
       </ul>
     </div>
 
     <div class="service-category">
       <img src="data.png" alt="Data Icon">
-      <h3>Data</h3>
+      <h3>Daten</h3>
       <ul>
         <li>Data Science & ML</li>
-        <li>Data Analytics</li>
-        <li>Data Visualization</li>
-        <li>Data Annotation</li>
+        <li>Datenanalyse</li>
+        <li>Datenvisualisierung</li>
+        <li>Datenannotation</li>
       </ul>
     </div>
 
@@ -274,22 +275,22 @@
       <img src="briefcase.png" alt="Business Icon">
       <h3>Business</h3>
       <ul>
-        <li>AI Consulting</li>
-        <li>AI Strategy</li>
-        <li>AI Content Editing</li>
-        <li>Custom Prompt Writing</li>
-        <li>AI Lessons</li>
+        <li>KI-Beratung</li>
+        <li>KI-Strategie</li>
+        <li>KI-Inhaltsbearbeitung</li>
+        <li>Benutzerdefiniertes Prompt-Writing</li>
+        <li>KI-Lektionen</li>
       </ul>
     </div>
 
     <div class="service-category">
       <img src="voice-search.png" alt="Voice Icon">
-      <h3>Voice</h3>
+      <h3>Sprache</h3>
       <ul>
-        <li>Voice Synthesis & AI</li>
-        <li>Text-to-speech</li>
-        <li>Custom AI Voices</li>
-        <li>Speech Recognition</li>
+        <li>Sprachsynthese & KI</li>
+        <li>Text-to-Speech</li>
+        <li>Benutzerdefinierte KI-Stimmen</li>
+        <li>Spracherkennung</li>
       </ul>
     </div>
 
@@ -297,14 +298,15 @@
       <img src="video.png" alt="Video Icon">
       <h3>Video</h3>
       <ul>
-        <li>AI Music Videos</li>
-        <li>AI Spokesperson Videos</li>
-        <li>AI Video Art</li>
+        <li>KI-Musikvideos</li>
+        <li>KI-Sprecher-Videos</li>
+        <li>KI-Videokunst</li>
       </ul>
     </div>
 
     <div class="service-category">
-      <img src="program.png" alt="Programming Languages Icon"> <h3>Languages & Frameworks</h3>
+      <img src="program.png" alt="Programming Languages Icon">
+      <h3>Sprachen & Frameworks</h3>
       <ul>
         <li>Python</li>
         <li>React</li>
@@ -319,8 +321,8 @@
     </div>
 
     <div class="cta-buttons">
-      <a href="#">Let’s Talk</a>
-      <a href="#">Explore Use Cases</a>
+      <a href="#">Sprechen Sie mit uns</a>
+      <a href="#">Anwendungsfälle entdecken</a>
     </div>
   </section>
 
