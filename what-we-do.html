@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How We Do It | IVDY Group</title>
+  <title>What We Do | IVDY Group</title>
   <style>
     * {
       margin: 0;
@@ -53,28 +53,66 @@
 
     section {
       padding: 2rem;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
     }
 
-    .step {
-      margin-bottom: 2rem;
+    .service-category {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      text-align: center;
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-
-    ul {
-      list-style-type: none;
-      padding-left: 1rem;
+    .service-category img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    ul li::before {
-      content: '✔️';
-      margin-right: 0.5rem;
+    .service-category h3 {
       color: #072fa0;
+      font-size: 24px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+    .service-category ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      flex-grow: 1;
+    }
+    .service-category ul li {
+      color: #555;
+      font-size: 17px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .service-category ul li::before {
+      content: '•';
+      margin-right: 8px;
+      color: #072fa0;
+      font-size: 1.2em;
+      line-height: 1;
     }
 
     .cta-buttons {
       text-align: center;
       margin-top: 3rem;
+      width: 100%;
     }
 
     .cta-buttons a {
@@ -123,6 +161,34 @@
       text-decoration: underline;
     }
 
+    /* Google Translate Dropdown Styling */
+    #google_translate_element {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border: 1px solid #eee;
+    }
+    #google_translate_element .goog-te-gadget-simple {
+      background-color: transparent !important;
+      border: none !important;
+    }
+    #google_translate_element .goog-te-gadget-simple .goog-te-menu-value {
+        color: #072fa0 !important;
+        font-weight: bold;
+    }
+    #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
+        color: #072fa0 !important;
+    }
+    #google_translate_element .goog-te-gadget-simple .goog-te-menu-value img {
+        display: none !important;
+    }
+
+
     @media (max-width: 768px) {
       .unicorn-bg {
         display: none;
@@ -140,73 +206,117 @@
       .footer-right a {
         margin: 0 0.5rem;
       }
+      section {
+        padding: 1rem;
+      }
+      .service-category {
+        width: 100%;
+      }
+      #google_translate_element {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        text-align: center;
+        width: auto;
+      }
+      header {
+        padding-top: 70px;
+      }
     }
   </style>
 </head>
 <body>
   <img src="unicorn-royality-free.png" alt="Unicorn" class="unicorn-bg" />
 
+  <div id="google_translate_element"></div>
+
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,de,tr,fr,es,it',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+  }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
   <header>
-    <h1>HOW WE DO IT</h1>
-    <p>From Concept to Impact</p>
+    <h1>WHAT WE DO</h1>
+    <p>Our Core Expertise</p>
   </header>
 
   <section>
-    <h2>1. Research & Development</h2>
-    <p>We start with deep research grounded in applied mathematics, chaos theory, and system modeling.</p>
-    <ul>
-      <li>Proprietary algorithms</li>
-      <li>Smart contract–based platforms</li>
-      <li>Global expert networks</li>
-    </ul>
+    <div class="service-category">
+      <img src="wwd1.png" alt="Tech Icon">
+      <h3>Tech</h3>
+      <ul>
+        <li>AI Development</li>
+        <li>AI Applications</li>
+        <li>AI Chatbots</li>
+        <li>AI Integration</li>
+        <li>AI Model Fine-tuning</li>
+      </ul>
+    </div>
 
-    <h2>2. Data-Driven Intelligence</h2>
-    <p>Real-time data and predictive analytics power our decentralized, high-performance decision systems.</p>
-    <ul>
-      <li>IVDY Medical Blockchain</li>
-      <li>Real-time health & agricultural data flows</li>
-      <li>Predictive diagnostics & automation</li>
-    </ul>
+    <div class="service-category">
+      <img src="wwd2.png" alt="Data Icon">
+      <h3>Data</h3>
+      <ul>
+        <li>Data Science & ML</li>
+        <li>Data Analytics</li>
+        <li>Data Visualization</li>
+        <li>Data Annotation</li>
+      </ul>
+    </div>
 
-    <h2>3. Engineering & Prototyping</h2>
-    <p>We engineer hardware and software – from electric race cars to agricultural drones.</p>
-    <ul>
-      <li>EULE electric race platform</li>
-      <li>Baykuş & Kartal drone systems</li>
-      <li>Sensor-integrated robotics</li>
-    </ul>
+    <div class="service-category">
+      <img src="wwd3.png" alt="Business Icon">
+      <h3>Business</h3>
+      <ul>
+        <li>AI Consulting</li>
+        <li>AI Strategy</li>
+        <li>AI Content Editing</li>
+        <li>Custom Prompt Writing</li>
+        <li>AI Lessons</li>
+      </ul>
+    </div>
 
-    <h2>4. Field Deployment</h2>
-    <p>We deploy and test our solutions in real-world settings: hospitals, farms, and racetracks.</p>
-    <ul>
-      <li>Scalable hardware & cloud platforms</li>
-      <li>IoT-powered ecosystems</li>
-      <li>Global support & training</li>
-    </ul>
+    <div class="service-category">
+      <img src="wwd4.png" alt="Voice Icon">
+      <h3>Voice</h3>
+      <ul>
+        <li>Voice Synthesis & AI</li>
+        <li>Text-to-speech</li>
+        <li>Custom AI Voices</li>
+        <li>Speech Recognition</li>
+      </ul>
+    </div>
 
-    <h2>5. Strategic Partnerships</h2>
-    <p>Collaboration is key. We work across industries to build adaptive, impactful systems.</p>
-    <ul>
-      <li>Hospitals & clinics</li>
-      <li>Governments & NGOs</li>
-      <li>Research institutes & innovators</li>
-    </ul>
+    <div class="service-category">
+      <img src="wwd5.png" alt="Video Icon">
+      <h3>Video</h3>
+      <ul>
+        <li>AI Music Videos</li>
+        <li>AI Spokesperson Videos</li>
+        <li>AI Video Art</li>
+      </ul>
+    </div>
 
-    <h2>6. Made in Turkey – Engineered in Germany</h2>
-    <p>Our innovations combine the strength of German engineering with the ingenuity of Turkish production. This fusion guarantees premium quality and global competitiveness.</p>
-    <ul>
-      <li>Excellent German engineering</li>
-      <li>High-tech production in Turkey</li>
-      <li>Global impact, local integrity</li>
-    </ul>
-
-    <h2>7. Our Unique Ecosystem</h2>
-    <p>We combine research, prototyping, and high-quality production into a single, unified cycle. This allows for ultra-fast optimization across all sectors and ensures a sustainable, holistic transformation of human life and work.</p>
-    <ul>
-      <li>360° integrated development approach</li>
-      <li>Ultra-fast system optimization</li>
-      <li>Holistic impact across industries</li>
-    </ul>
+    <div class="service-category">
+      <img src="wwd1.png" alt="Programming Languages Icon"> <h3>Languages & Frameworks</h3>
+      <ul>
+        <li>Python</li>
+        <li>React</li>
+        <li>React Native</li>
+        <li>Java</li>
+        <li>Flutter</li>
+        <li>Fortran</li>
+        <li>C</li>
+        <li>C++</li>
+        <li>MATLAB</li>
+      </ul>
+    </div>
 
     <div class="cta-buttons">
       <a href="#">Let’s Talk</a>
