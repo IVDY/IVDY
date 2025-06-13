@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How We Do It | IVDY Group</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: white;
+      color: #000;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .unicorn-bg {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      height: auto;
+      width: 30vw;
+      max-width: 400px;
+      opacity: 0.2;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 2.5rem 0 1.5rem;
+      text-align: center;
+      color: #072fa0;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .step {
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 1rem;
+    }
+
+    ul li::before {
+      content: '✔️';
+      margin-right: 0.5rem;
+      color: #072fa0;
+    }
+
+    .cta-buttons {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .cta-buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 1rem 2rem;
+      background-color: #072fa0;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-buttons a:hover {
+      background-color: #021e6e;
+    }
+
+    footer {
+      background-color: #072fa0;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-left {
+      font-size: 0.9rem;
+    }
+
+    .footer-center {
+      font-size: 0.9rem;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .footer-right a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-right a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .unicorn-bg {
+        display: none;
+      }
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-center {
+        margin: 0.5rem 0;
+      }
+      .footer-right {
+        margin-top: 0.5rem;
+      }
+      .footer-right a {
+        margin: 0 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="unicorn-royality-free.png" alt="Unicorn" class="unicorn-bg" />
+
+  <header>
+    <h1>HOW WE DO IT</h1>
+    <p>From Concept to Impact</p>
+  </header>
+
+  <section>
+    <h2>1. Research & Development</h2>
+    <p>We start with deep research grounded in applied mathematics, chaos theory, and system modeling.</p>
+    <ul>
+      <li>Proprietary algorithms</li>
+      <li>Smart contract–based platforms</li>
+      <li>Global expert networks</li>
+    </ul>
+
+    <h2>2. Data-Driven Intelligence</h2>
+    <p>Real-time data and predictive analytics power our decentralized, high-performance decision systems.</p>
+    <ul>
+      <li>IVDY Medical Blockchain</li>
+      <li>Real-time health & agricultural data flows</li>
+      <li>Predictive diagnostics & automation</li>
+    </ul>
+
+    <h2>3. Engineering & Prototyping</h2>
+    <p>We engineer hardware and software – from electric race cars to agricultural drones.</p>
+    <ul>
+      <li>EULE electric race platform</li>
+      <li>Baykuş & Kartal drone systems</li>
+      <li>Sensor-integrated robotics</li>
+    </ul>
+
+    <h2>4. Field Deployment</h2>
+    <p>We deploy and test our solutions in real-world settings: hospitals, farms, and racetracks.</p>
+    <ul>
+      <li>Scalable hardware & cloud platforms</li>
+      <li>IoT-powered ecosystems</li>
+      <li>Global support & training</li>
+    </ul>
+
+    <h2>5. Strategic Partnerships</h2>
+    <p>Collaboration is key. We work across industries to build adaptive, impactful systems.</p>
+    <ul>
+      <li>Hospitals & clinics</li>
+      <li>Governments & NGOs</li>
+      <li>Research institutes & innovators</li>
+    </ul>
+
+    <div class="cta-buttons">
+      <a href="#">Let’s Talk</a>
+      <a href="#">Explore Use Cases</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">
+      &copy; 2025 IVDY Group
+    </div>
+    <div class="footer-center">
+      Made with ❤️ in Essen
+    </div>
+    <div class="footer-right">
+      <a href="impressum.html">Impressum</a>
+      <a href="agb.html">AGB</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </footer>
+</body>
+</html>
