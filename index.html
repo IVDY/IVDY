@@ -110,10 +110,8 @@
     }
 
     @media (max-width: 768px) {
-      .unicorn-bg {
-        display: none;
-      }
-
+      /* Removed 'display: none;' for .unicorn-bg so it appears on mobile */
+      
       footer {
         flex-direction: column;
         text-align: center;
@@ -153,7 +151,7 @@
 
   <footer>
     <div class="footer-left">
-      &copy; 2025 IVDY Group,  <a href="about.html">about</a>
+      &copy; 2025 IVDY Group, <a href="about.html">about</a>
     </div>
     <div class="footer-center"> Made with ❤️ in Essen
     </div>
