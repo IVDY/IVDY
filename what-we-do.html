@@ -75,7 +75,7 @@
     .service-category img {
       --icon-size: 60px; /* Define the icon size variable here */
       width: var(--icon-size); /* Use the variable for width */
-      height: var(----icon-size); /* Use the variable for height */
+      height: var(--icon-size); /* Corrected: Use the variable for height, previously had a typo ---- */
       margin-bottom: 20px;
       display: block;
       margin-left: auto;
@@ -192,7 +192,10 @@
 
     @media (max-width: 768px) {
       .unicorn-bg {
-        display: none;
+        /* Removed 'display: none;' for .unicorn-bg so it appears on mobile */
+        /* Re-adding previous mobile adjustments for the unicorn-bg from earlier in the conversation for consistency */
+        width: 50vw;
+        opacity: 0.1;
       }
       footer {
         flex-direction: column;
@@ -227,7 +230,7 @@
   </style>
 </head>
 <body>
-  <img src="unicorn-royality-free.png" alt="Unicorn" class="unicorn-bg" />
+  <img src="assets/unicorn-royality-free.png" alt="Unicorn" class="unicorn-bg" />
 
   <div id="google_translate_element"></div>
 
@@ -249,7 +252,7 @@
 
   <section>
     <div class="service-category">
-      <img src="tech.png" alt="Tech Icon">
+      <img src="assets/tech.png" alt="Tech Icon">
       <h3>Technologie</h3>
       <ul>
         <li>KI-Entwicklung</li>
@@ -261,7 +264,7 @@
     </div>
 
     <div class="service-category">
-      <img src="data.png" alt="Data Icon">
+      <img src="assets/data.png" alt="Data Icon">
       <h3>Daten</h3>
       <ul>
         <li>Data Science & ML</li>
@@ -272,7 +275,7 @@
     </div>
 
     <div class="service-category">
-      <img src="briefcase.png" alt="Business Icon">
+      <img src="assets/briefcase.png" alt="Business Icon">
       <h3>Business</h3>
       <ul>
         <li>KI-Beratung</li>
@@ -284,7 +287,7 @@
     </div>
 
     <div class="service-category">
-      <img src="voice-search.png" alt="Voice Icon">
+      <img src="assets/voice-search.png" alt="Voice Icon">
       <h3>Sprache</h3>
       <ul>
         <li>Sprachsynthese & KI</li>
@@ -295,7 +298,7 @@
     </div>
 
     <div class="service-category">
-      <img src="video.png" alt="Video Icon">
+      <img src="assets/video.png" alt="Video Icon">
       <h3>Video</h3>
       <ul>
         <li>KI-Musikvideos</li>
@@ -305,7 +308,7 @@
     </div>
 
     <div class="service-category">
-      <img src="program.png" alt="Programming Languages Icon">
+      <img src="assets/program.png" alt="Programming Languages Icon">
       <h3>Sprachen & Frameworks</h3>
       <ul>
         <li>Python</li>
