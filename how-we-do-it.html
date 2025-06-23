@@ -124,8 +124,10 @@
     }
 
     @media (max-width: 768px) {
+      /* Removed display: none; from here to keep the unicorn-bg visible */
       .unicorn-bg {
-        display: none;
+        width: 50vw; /* You might want to adjust the size for mobile */
+        opacity: 0.1; /* And maybe the opacity for less distraction */
       }
       footer {
         flex-direction: column;
