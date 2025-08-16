@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVDY - From Coal Capital to Data Capital</title>
+    <style>
+        /* CSS would go here, but for this task, we'll keep it simple to focus on HTML structure. */
+        /* You'd use a separate CSS file for a real project. */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            background-color: #f0f4f9;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .header-logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .header-nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn {
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .btn-primary {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .btn-secondary {
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+        }
+        .section {
+            padding: 60px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        .section-center {
+            text-align: center;
+        }
+        .testimonial {
+            background-color: #e3f2fd;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .testimonial p {
+            font-style: italic;
+            color: #3b82f6;
+            font-size: 18px;
+        }
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .grid-3-col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .card {
+            background-color: #f0f4f9;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .list-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .list-item span {
+            margin-right: 10px;
+        }
+        .accent-text {
+            color: #3b82f6;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .price {
+            font-size: 40px;
+            font-weight: 900;
+            color: #3b82f6;
+        }
+        .payment-options {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .payment-card {
+            flex: 1;
+            background-color: #f0f4f9;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+
+  
+</head>
+<body>
+
+    <header class="container">
+        <a href="#" class="header-logo">IVDY</a>
+        <nav class="header-nav">
+            <a href="#">Foundation</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p class="small-text">IVDY Unicorn Accelerator Program</p>
+            <h1>From Coal Capital<br>to Data Capital</h1>
+            <p>The world's best unicorn accelerator. Turn your startup into a billion-euro unicorn through predictable calculations and data science excellence.</p>
+            <div class="hero-buttons">
+                <a href="#register" class="btn btn-primary">Join Program - €12.597</a>
+                <a href="#learn-more" class="btn btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <section class="container section">
+            <div class="grid-2-col">
+                <div class="card">
+                    <h2>Hello... My name is Hatice</h2>
+                    <p>From a young age I was fascinated by mathematics, engineering and medicine - I am an applied mathematician (M.Sc.) at heart - it runs through my veins and the passion will never wane.</p>
+                    <p>Whenever I see data or systems, I immediately think about optimization and automation.</p>
+                    <p><strong>My mission</strong> - turn the coal capital into the data capital 🦄</p>
+                </div>
+                <div class="card">
+                    <h3>IVDY Philosophy</h3>
+                    <p>Mathematics meets Innovation. Data drives Transformation. Excellence creates Unicorns.</p>
+                                    </div>
+            </div>
+        </section>
+
+        <section class="container section section-center">
+            <h2>What is IVDY?</h2>
+            <p>The word IVDY is my invention from the Turkish word "İvdirici" which means accelerator. The name IVDY is a combination of the first three letters IVD and a cute Y to top it off.</p>
+            <div class="grid-3-col">
+                <div class="card">
+                    <h3>Innovation</h3>
+                    <p>Cutting-edge solutions using AI, blockchain, VR & automation</p>
+                </div>
+                <div class="card">
+                    <h3>Value Creation</h3>
+                    <p>Individual use cases worth €10+ million per year for each client</p>
+                </div>
+                <div class="card">
+                    <h3>Global Impact</h3>
+                    <p>Helping cosmopolitans make the right decisions for their business future</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section section-center">
+                        <h2>What is a Unicorn?</h2>
+            <p>In economics, a unicorn is a startup company with a value of over 1 billion euros, which is privately owned and not listed on a stock exchange. The term was first published in 2013 and was coined by venture capitalist Aileen Lee, who chose the mythical animal to symbolize the statistical rarity of such successful ventures.</p>
+        </section>
+
+        <section class="container section">
+            <div class="grid-2-col">
+                <div>
+                    <h2>What does the IVDY Unicorn Startup Program do?</h2>
+                    <p>The overarching goal of IVDY is to help startups achieve breakthroughs. You arrive at IVDY in all phases. Some haven't even started work yet, others have only been on the market for a year or more.</p>
+                    <div class="card">
+                        <h3>Our Approach</h3>
+                        <p><strong>3-Month Transformation</strong><br>Help startups be in significantly better shape in just 3 months</p>
+                        <p><strong>Predictable Calculations</strong><br>Make you a superstar unicorn startup through data-driven methods</p>
+                        <p><strong>Billion Euro Goal</strong><br>Rapidly achieve billion-euro valuation through strategic optimization</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Full-Service Excellence</h3>
+                    <p>We are a full-service data science agency using:</p>
+                    <div class="grid-2-col">
+                        <div>AI & ML</div>
+                        <div>Blockchain</div>
+                        <div>VR</div>
+                        <div>Automation</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section section-center">
+            <p>Exceptional Value Creation</p>
+            <p>I enjoy working on valuable use cases. Our customers receive multiple added value of €1-10 million per year per implemented use case.</p>
+            <div class="testimonial">
+                <p>€10M+</p>
+                <p>Annual Value per Use Case</p>
+                <p>Individual, tailored solutions that deliver measurable results</p>
+            </div>
+        </section>
+
+        <section id="register" class="container section section-center">
+            <p>Limited number of participants</p>
+            <h2>Register today for our program</h2>
+            <p>Our independent advice helps Unicorn Startups and those who want to be, to make the right decisions for their business and future.</p>
+            <div class="grid-2-col">
+                <div class="card">
+                    <h3>What you get</h3>
+                    <ul>
+                        <li class="list-item"><span>→</span> Individuelle, maßgeschneiderte Zusammenarbeit</li>
+                        <li class="list-item"><span>→</span> Maximale Unabhängigkeit und Diskretion</li>
+                        <li class="list-item"><span>→</span> Umsetzungsplan inklusive</li>
+                        <li class="list-item"><span>→</span> Zeitnahe Terminfindung</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Teilnahmebedingungen</h3>
+                    <ul>
+                        <li class="list-item"><span>📍</span> Standort: Registrierung / Anmeldung StartUp in Essen, NRW</li>
+                        <li class="list-item"><span>🤝</span> Partnerschaft: Partnerschaft mit IVDY Group</li>
+                        <li class="list-item"><span>💎</span> Zusätzlicher Benefit: IVDY Fallberatung zu vereinfachten Konditionen</li>
+                    </ul>
+                    <div class="card" style="background-color: #fcebeb; color: #d9534f;">
+                        <p><strong>⚠️ Important</strong><br>Only a limited number of participants possible</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section section-center">
+            <div class="testimonial">
+                <p>Does this roughly match the added value of your customers? Then we can definitely build something cool together.</p>
+            </div>
+        </section>
+
+        <section class="container section section-center">
+            <h2>Program Investment</h2>
+            <p class="price">€12.987</p>
+            <p>Complete transformation program with guaranteed results</p>
+            <div class="payment-options">
+                <div class="payment-card">
+                    <h3>Stripe Zahlung</h3>
+                    <p>Secure online payment with credit card</p>
+                    <a href="#" class="btn btn-primary">Jetzt mit Stripe bezahlen - €12.987</a>
+                </div>
+                <div class="payment-card">
+                    <h3>Banküberweisung</h3>
+                    <p><strong>Bank:</strong> N26</p>
+                    <p><strong>IBAN:</strong> DE96 2818 0120 1801 2826 4728 5751 2859 28</p>
+                    <p><strong>BIC:</strong> NTSBDEBDXXX</p>
+                    <p><strong>Verwendungszweck:</strong> Registrierung IVDY Unicorn Program "Name Startup"</p>
+                    <p><strong>Betrag:</strong> 12.987,00 €</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section section-center">
+            <p>Choose your preferred payment method and start your Unicorn-Journey today!</p>
+        </section>
+
+    </main>
+
+    <footer class="container section-center">
+        <hr>
+        <h3>IVDY UNICORN STARTUP ACCELERATOR</h3>
+        <p>Our independent advice helps cosmopolitans make the right decisions for their business and future.</p>
+        <div class="card" style="background-color: #fcebeb; color: #d9534f; display: inline-block;">
+            <p>Only a limited number of participants possible</p>
+        </div>
+        <hr>
+        <p>IVDY</p>
+        <p>From Coal Capital to Data Capital - Creating Unicorns Through Mathematics</p>
+        <nav>
+            <a href="#">Foundation</a> | <a href="#">Research</a> | <a href="#">Funding</a>
+        </nav>
+        <p>© 2025 IVDY Group All rights reserved.</p>
+    </footer>
+
+  <footer>
+    <div class="footer-left">
+      &copy; 2025 IVDY Group, <a href="about.html">about</a>
+    </div>
+    <div class="footer-center"> Made with ❤️ in Essen
+    </div>
+    <div class="footer-right">
+      <a href="impressum.html">Impressum</a>
+      <a href="agb.html">AGB</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </footer>
+
+</body>
+</html>
