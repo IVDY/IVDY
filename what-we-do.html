@@ -4,7 +4,232 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Was wir tun | IVDY Group</title>
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: white;
+            color: #000;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .unicorn-bg {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            height: auto;
+            width: 30vw;
+            max-width: 400px;
+            opacity: 0.2;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 2.5rem 0 1.5rem;
+            text-align: center;
+            color: #072fa0;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .service-category {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-category img {
+            --icon-size: 60px;
+            width: var(--icon-size);
+            height: var(--icon-size);
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-category h3 {
+            color: #072fa0;
+            font-size: 24px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .service-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .service-category ul li {
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .service-category ul li::before {
+            content: '•';
+            margin-right: 8px;
+            color: #072fa0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .cta-buttons {
+            text-align: center;
+            margin-top: 3rem;
+            width: 100%;
+        }
+
+        .cta-buttons a {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 1rem 2rem;
+            background-color: #072fa0;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-buttons a:hover {
+            background-color: #021e6e;
+        }
+
+        footer {
+            background-color: #072fa0;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-left {
+            font-size: 0.9rem;
+        }
+
+        .footer-center {
+            font-size: 0.9rem;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .footer-right a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-right a:hover {
+            text-decoration: underline;
+        }
+
+        /* Google Translate Dropdown Styling */
+        #google_translate_element {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        #google_translate_element .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border: none !important;
+        }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value {
+            color: #072fa0 !important;
+            font-weight: bold;
+        }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span {
+            color: #072fa0 !important;
+        }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value img {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .unicorn-bg {
+                width: 50vw;
+                opacity: 0.1;
+            }
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-center {
+                margin: 0.5rem 0;
+            }
+            .footer-right {
+                margin-top: 0.5rem;
+            }
+            .footer-right a {
+                margin: 0 0.5rem;
+            }
+            section {
+                padding: 1rem;
+            }
+            .service-category {
+                width: 100%;
+            }
+            #google_translate_element {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                text-align: center;
+                width: auto;
+            }
+            header {
+                padding-top: 70px;
+            }
+        }
+    </style>
 </head>
 <body>
     <img src="assets/unicorn-royality-free.png" alt="Ein Einhorn als dekorativer Hintergrund" class="unicorn-bg" loading="lazy" />
@@ -28,8 +253,8 @@
     </header>
 
     <main>
+        <h2 class="section-title">Unsere Servicebereiche</h2>
         <section class="services-section">
-            <h2 class="section-title">Unsere Servicebereiche</h2>
             <div class="service-category">
                 <img src="assets/tech.png" alt="" aria-hidden="true" class="service-icon">
                 <h3 class="category-heading">Technologie</h3>
