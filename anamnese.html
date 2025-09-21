@@ -15,6 +15,46 @@
       display: flex;
       flex-direction: column;
     }
+    .site-header {
+      background: #fff;
+      padding-top: 22px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e4e9ef;
+      text-align: left;
+      margin-bottom: 2vw;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .header-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .header-logo img {
+      width: 45px;
+      height: 45px;
+      margin-bottom: 2px;
+      object-fit: contain;
+    }
+    .header-brand {
+      font-weight: 700;
+      color: #324187;
+      font-size: 1.1em;
+      letter-spacing: 0.02em;
+      margin-top: 0;
+    }
+    @media (max-width: 600px) {
+      .header-inner {
+        padding: 0 6px;
+      }
+      .header-logo img { width: 36px; height: 36px; }
+      .header-brand { font-size: 1em; }
+    }
     .anamnese-container {
       background: #fff;
       margin: 2vw auto 0 auto;
@@ -201,6 +241,15 @@
   </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <img src="ivdy-transparent-website-1.png" alt="IVDY Logo">
+        <span class="header-brand">IVDY</span>
+      </div>
+    </div>
+  </header>
   <div class="anamnese-container">
     <h1>Anamnesebogen (bitte vollständig ausfüllen)</h1>
     <section class="section personal">
@@ -327,7 +376,7 @@
         <li><label><input type="checkbox"> Ich verpflichte mich, die Praxis umgehend über alle während des Behandlungszeitraumes auftretenden Änderungen zu informieren.</label></li>
       </ul>
       <div class="praxis-hinweis">
-        Bei der Praxis von IVDY handelt es sich um eine reine digitale Bestellpraxis. Bitte stornieren Sie Ihren Termin deshalb bei Verhinderung mindestens 24 Stunden vorher!
+        Bei der IVDY Praxis handelt es sich um eine reine digitale Bestellpraxis. Bitte stornieren Sie Ihren Termin deshalb bei Verhinderung mindestens 24 Stunden vorher!
       </div>
       <div>
         Ich bestätige mit meiner Unterschrift, dass ich die abgedruckten Informationen gelesen und verstanden habe.
@@ -355,9 +404,9 @@
         Made with <span class="footer-heart">&#10084;&#65039;</span> in Essen
       </div>
       <div class="footer-right">
-        <a href="#" class="footer-link">Impressum</a>
-        <a href="#" class="footer-link">Datenschutz</a>
-        <a href="#" class="footer-link">Cookies</a>
+        <a href="impressum.html" class="footer-link">Impressum</a>
+        <a href="agb.html" class="footer-link">AGB</a>
+        <a href="datenschutz.html" class="footer-link">Datenschutz</a>
       </div>
     </div>
   </footer>
