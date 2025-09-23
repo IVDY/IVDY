@@ -71,7 +71,7 @@
         .recipient-details, .offer-details {
             margin-bottom: 1rem;
         }
-        
+
         .recipient-details .input-group {
             margin-bottom: 0.75rem;
         }
@@ -88,6 +88,25 @@
             padding: 0.5rem;
             border: 1px solid #ddd;
             border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        /* Neue Styles zum Verstecken der Eingabefelder im Druckmodus und Anzeigen der Text-Container */
+        @media print, (orientation: portrait) {
+            .recipient-details form {
+                display: none;
+            }
+            .recipient-details .print-data {
+                display: block !important;
+            }
+        }
+
+        .print-data {
+            display: none;
+        }
+
+        .print-data p {
+            margin: 0.25rem 0;
             font-size: 0.95rem;
         }
 
@@ -123,7 +142,7 @@
             padding: 0.75rem 0;
             border-bottom: 1px solid #eee;
         }
-        
+
         .product-list th {
             font-weight: bold;
             color: #555;
@@ -162,7 +181,7 @@
             left: 0;
             top: -0.1rem;
         }
-        
+
         .signature-box {
             background: #f0f4f7;
             border: 1px solid #dee2e6;
@@ -170,7 +189,7 @@
             border-radius: 6px;
             margin: 2rem 0;
         }
-        
+
         .signature-box h3 {
             color: #072fa0;
             margin-bottom: 0.5rem;
@@ -196,7 +215,7 @@
             gap: 1rem;
             flex-wrap: wrap;
         }
-        
+
         .signature-actions button {
             padding: 0.75rem 1.5rem;
             border: none;
@@ -205,7 +224,7 @@
             font-size: 1rem;
             transition: background-color 0.2s;
         }
-        
+
         .signature-actions .btn-clear {
             background-color: #e9ecef;
             color: #333;
@@ -276,7 +295,7 @@
             display: flex;
             gap: 1rem;
         }
-        
+
         .action-buttons button {
             padding: 0.75rem 1.5rem;
             border-radius: 4px;
@@ -286,7 +305,7 @@
             cursor: pointer;
             transition: background-color 0.2s, color 0.2s;
         }
-        
+
         .action-buttons .btn-download {
             background-color: #072fa0;
             color: white;
@@ -334,7 +353,7 @@
         .footer-right a:hover {
             text-decoration: underline;
         }
-        
+
         .total-label {
             text-align: left !important;
         }
@@ -343,7 +362,7 @@
             .container {
                 padding: 1rem;
             }
-            
+
             .unicorn-bg {
                 width: 50vw;
             }
@@ -352,7 +371,7 @@
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .invoice-details-header {
                 flex-direction: column;
             }
@@ -430,6 +449,14 @@
                         <input type="tel" id="phone" name="phone" placeholder="+4915755447700" />
                     </div>
                 </form>
+                <div class="print-data">
+                    <p id="print-company"></p>
+                    <p id="print-full-name"></p>
+                    <p id="print-address"></p>
+                    <p id="print-country"></p>
+                    <p id="print-email"></p>
+                    <p id="print-phone"></p>
+                </div>
             </div>
             <div class="offer-details">
                 <p><strong>Angebot erstellt:</strong> <span id="angebot-erstellt"></span></p>
@@ -504,7 +531,7 @@
                 <a href="https://buy.stripe.com/9AQbLR6G995r2ZybIZ" target="_blank">Jetzt bezahlen</a>
             </div>
         </div>
-        
+
         <div class="contact-download-section">
             <div class="contact-info-footer">
                 <p>Bei Fragen stehen wir jederzeit zur Verfügung.</p>
@@ -536,7 +563,7 @@
             <a href="datenschutz.html">Datenschutz</a>
         </div>
     </footer>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=IHREN_API_KEY_HIER_EINFÜGEN&libraries=places"></script>
     <script>
@@ -548,7 +575,7 @@
                 year: 'numeric'
             });
         }
-        
+
         // Funktion zum Hinzufügen von Geschäftstagen
         function addBusinessDays(date, days) {
             let result = new Date(date);
@@ -572,12 +599,12 @@
             const checkbox = document.getElementById('optional-service');
             const vatElement = document.getElementById('vat-amount');
             const totalElement = document.getElementById('total-sum');
-            
+
             let subtotal = BASE_PRICE;
             if (checkbox.checked) {
                 subtotal += OPTIONAL_PRICE;
             }
-            
+
             const currentVat = subtotal * VAT_RATE;
             const totalSum = subtotal + currentVat;
 
@@ -585,11 +612,21 @@
                 style: 'currency',
                 currency: 'EUR'
             });
-            
+
             totalElement.textContent = totalSum.toLocaleString('de-DE', {
                 style: 'currency',
                 currency: 'EUR'
             });
+        }
+
+        // Funktion, um die Daten aus den Eingabefeldern in die Druckversion zu kopieren
+        function updateDataForPrintAndDownload() {
+            document.getElementById('print-company').textContent = document.getElementById('company').value;
+            document.getElementById('print-full-name').textContent = document.getElementById('full-name').value;
+            document.getElementById('print-address').textContent = document.getElementById('address').value;
+            document.getElementById('print-country').textContent = document.getElementById('country').value;
+            document.getElementById('print-email').textContent = document.getElementById('email').value;
+            document.getElementById('print-phone').textContent = document.getElementById('phone').value;
         }
 
         // Initialisierung bei DOM-Laden
@@ -673,6 +710,7 @@
         }
 
         function downloadPDF() {
+            updateDataForPrintAndDownload();
             const element = document.body;
             html2pdf(element, {
                 margin: 1,
@@ -684,6 +722,7 @@
         }
 
         function printOffer() {
+            updateDataForPrintAndDownload();
             window.print();
         }
     </script>
