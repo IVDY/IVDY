@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>IVDY Group - Angebot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            color: #333;
+            background: #f8f9fa;
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .unicorn-bg {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            height: auto;
+            width: 30vw;
+            max-width: 400px;
+            opacity: 0.2;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .logo-header img {
+            max-width: 80px;
+            height: auto;
+        }
+
+        .logo-header h1 {
+            color: #072fa0;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .invoice-details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .recipient-details, .offer-details {
+            margin-bottom: 1rem;
+        }
+
+        .recipient-details p, .offer-details p {
+            margin: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+
+        .offer-details strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            color: #072fa0;
+            border-bottom: 2px solid #072fa0;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .product-list table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        .product-list th, .product-list td {
+            text-align: left;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .product-list th {
+            font-weight: bold;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .product-list .item-total {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .item-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .item-description ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
+        }
+
+        .item-description li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-description li::before {
+            content: '•';
+            color: #072fa0;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -0.1rem;
+        }
+
+        .signature-box {
+            background: #f0f4f7;
+            border: 1px solid #dee2e6;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+        }
+        
+        .signature-box h3 {
+            color: #072fa0;
+            margin-bottom: 0.5rem;
+        }
+
+        .signature-box p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        #signature-pad {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            cursor: crosshair;
+            margin-bottom: 1rem;
+        }
+
+        .signature-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .signature-actions button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+        
+        .signature-actions .btn-clear {
+            background-color: #e9ecef;
+            color: #333;
+        }
+        .signature-actions .btn-clear:hover {
+            background-color: #dee2e6;
+        }
+
+        .signature-actions .btn-submit {
+            background-color: #072fa0;
+            color: white;
+        }
+        .signature-actions .btn-submit:hover {
+            background-color: #052285;
+        }
+
+        .contact-download-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .contact-info-footer {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info-footer h4 {
+            margin: 0;
+        }
+
+        .contact-info-footer p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #666;
+        }
+        .contact-info-footer a {
+            color: #072fa0;
+            text-decoration: none;
+        }
+        .contact-info-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .action-buttons button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            border: none;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        
+        .action-buttons .btn-download {
+            background-color: #072fa0;
+            color: white;
+        }
+        .action-buttons .btn-download:hover {
+            background-color: #052285;
+        }
+
+        .action-buttons .btn-print {
+            background-color: #072fa0;
+            color: white;
+        }
+        .action-buttons .btn-print:hover {
+            background-color: #052285;
+        }
+
+        footer {
+            background-color: #072fa0;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .footer-left {
+            font-size: 0.9rem;
+        }
+
+        .footer-center {
+            font-size: 0.9rem;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .footer-right a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-right a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .unicorn-bg {
+                width: 50vw;
+            }
+
+            .logo-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .invoice-details-header {
+                flex-direction: column;
+            }
+
+            .offer-details {
+                text-align: left;
+            }
+
+            .contact-download-section {
+                align-items: center;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 0.5rem;
+            }
+
+            .action-buttons button {
+                width: 100%;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-center {
+                margin: 0.5rem 0;
+            }
+
+            .footer-right {
+                margin-top: 0.5rem;
+            }
+
+            .footer-right a {
+                margin: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="assets/unicorn-royality-free.png" alt="Unicorn" class="unicorn-bg" />
+
+    <main class="container">
+        <div class="logo-header">
+            <img src="assets/mandelbrot.png" alt="IVDY Group Logo">
+            <h1>IVDY Group Consulting</h1>
+        </div>
+
+        <div class="invoice-details-header">
+            <div class="recipient-details">
+                <p>Hatice Tavli (Einzelunternehmen)</p>
+                <p>Grugplatz 2-4</p>
+                <p>45131 Essen</p>
+                <p>Hatice Tavli</p>
+                <p>ivdyhatice@gmail.com</p>
+                <p>+4915755447700</p>
+            </div>
+            <div class="offer-details">
+                <p><strong>Angebot erstellt:</strong> 18. September 2025</p>
+                <p><strong>Angebot läuft ab:</strong> 21. September 2025</p>
+                <p><strong>Angebot erstellt von:</strong> Hatice Tavlı</p>
+                <p>hatice@ivdygroup.de</p>
+                <p>+491633833120</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Produkte & Services</h2>
+        <div class="product-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Artikel & Beschreibung</th>
+                        <th class="item-total">Gesamt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>Beratung & Erstellung eines KI-gestützten Optimierungs-Strategie</strong>
+                            <div class="item-description">
+                                <p>Als Experten in den Bereichen Künstliche Intelligenz, Optimierung, Automatisierung, Big Data und Unternehmensberatung verfügen wir über umfassende Erfahrung darin, Unternehmen bei der Entwicklung intelligenter Systeme sowie bei der Optimierung bestehender Prozesse zu unterstützen. Ziel ist es, den Wert Ihres Unternehmens langfristig zu sichern und nachhaltig zu steigern.</p>
+                                <br>
+                                <p>Wir kombinieren mathematische Präzision mit modernster Technologie und bieten Ihnen:</p>
+                                <ul>
+                                    <li>Analyse der IST-Situation inklusive Datenaufbereitung</li>
+                                    <li>Erstellung einer individuellen Strategie</li>
+                                    <li>Erarbeitung eines Fahrplans/Konzepts, exakt zugeschnitten auf Ihren Fall</li>
+                                    <li>Ganzheitliche Ansätze, die Struktur, KI, Blockchain, Maschinen, Roboter und Asset Protection umfassen</li>
+                                    <li>Individuelle, maßgeschneiderte Beratung für Ihre spezifischen Anforderungen</li>
+                                    <li>Maximale Unabhängigkeit und Diskretion</li>
+                                    <li>Umsetzungsplan inklusive – für eine effiziente und erfolgreiche Implementierung</li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td class="item-total">17.500,00 €</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konzeptgebühr</strong></td>
+                        <td class="item-total">-5.000,00 €</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="optional-service" onchange="updateTotal()">
+                                <label for="optional-service">Optionale nachgelagerte Beratungsleistungen</label>
+                            </div>
+                        </td>
+                        <td class="item-total">+8.000,00 €</td>
+                    </tr>
+                    <tr>
+                        <td><strong>USt.</strong></td>
+                        <td class="item-total">2.375,00 €</td>
+                    </tr>
+                    <tr>
+                        <td class="item-total"><strong>Summe</strong></td>
+                        <td class="item-total"><strong id="total-sum">14.875,00 €</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="signature-box">
+            <h3>Signatur</h3>
+            <p>Bitte unterschreiben Sie in dem Feld unten. Verwenden Sie dafür einen Stift oder Ihren Finger, falls Sie ein Touch-Gerät nutzen.</p>
+            <canvas id="signature-pad"></canvas>
+            <div class="signature-actions">
+                <button class="btn-clear" onclick="clearSignature()">Löschen</button>
+                <button class="btn-submit" onclick="submitSignature()">Signieren & Bezahlen</button>
+            </div>
+        </div>
+        
+        <div class="contact-download-section">
+            <div class="contact-info-footer">
+                <p>Bei Fragen stehen wir jederzeit zur Verfügung.</p>
+                <p>Hatice Tavlı</p>
+                <p><a href="mailto:hatice@ivdygroup.de">hatice@ivdygroup.de</a></p>
+                <p>+491633833120</p>
+                <p>IVDY Group</p>
+                <p>Grugaplatz 2-4</p>
+                <p>45131 Essen</p>
+                <p>Deutschland</p>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-download" onclick="downloadPDF()">Download</button>
+                <button class="btn-print" onclick="printOffer()">Angebot drucken</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            &copy; 2025 IVDY Group, <a href="about.html">about</a>
+        </div>
+        <div class="footer-center"> Made with ❤️ in Essen
+        </div>
+        <div class="footer-right">
+            <a href="impressum.html">Impressum</a>
+            <a href="agb.html">AGB</a>
+            <a href="datenschutz.html">Datenschutz</a>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+        const canvas = document.getElementById('signature-pad');
+        const ctx = canvas.getContext('2d');
+        let drawing = false;
+
+        // Set canvas size for high-res drawing
+        canvas.width = 600;
+        canvas.height = 200;
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = '#000';
+
+        function startPosition(e) {
+            drawing = true;
+            draw(e);
+        }
+
+        function endPosition() {
+            drawing = false;
+            ctx.beginPath();
+        }
+
+        function draw(e) {
+            if (!drawing) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        canvas.addEventListener('mousedown', startPosition);
+        canvas.addEventListener('mouseup', endPosition);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchstart', startPosition);
+        canvas.addEventListener('touchend', endPosition);
+        canvas.addEventListener('touchmove', draw);
+
+        function clearSignature() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function submitSignature() {
+            if (canvas.toDataURL().length < 10000) {
+                alert("Bitte unterschreiben Sie, bevor Sie fortfahren.");
+                return;
+            }
+
+            const signatureData = canvas.toDataURL('image/png');
+            console.log(signatureData);
+
+            alert("Ihre Signatur wurde erfolgreich gespeichert. Weiterleitung zur Bezahlung.");
+            
+            // Redirect to the payment page
+            window.location.href = 'payment-page.html';
+        }
+
+        function downloadPDF() {
+            const element = document.body;
+            html2pdf(element, {
+                margin: 1,
+                filename: 'IVDY_Group_Angebot.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            });
+        }
+
+        function printOffer() {
+            window.print();
+        }
+
+        function updateTotal() {
+            const checkbox = document.getElementById('optional-service');
+            const totalElement = document.getElementById('total-sum');
+            let baseTotal = 14875.00;
+            const optionalPrice = 8000.00;
+
+            if (checkbox.checked) {
+                baseTotal += optionalPrice;
+            }
+
+            totalElement.textContent = baseTotal.toLocaleString('de-DE', {
+                style: 'currency',
+                currency: 'EUR'
+            });
+        }
+    </script>
+</body>
+</html>
