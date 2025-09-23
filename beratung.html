@@ -72,7 +72,6 @@
             margin-bottom: 1rem;
         }
         
-        /* New styles for input fields */
         .recipient-details .input-group {
             margin-bottom: 0.75rem;
         }
@@ -163,7 +162,7 @@
             left: 0;
             top: -0.1rem;
         }
-
+        
         .signature-box {
             background: #f0f4f7;
             border: 1px solid #dee2e6;
@@ -335,6 +334,10 @@
         .footer-right a:hover {
             text-decoration: underline;
         }
+        
+        .total-label {
+            text-align: left !important;
+        }
 
         @media (max-width: 768px) {
             .container {
@@ -392,11 +395,10 @@
     </style>
 </head>
 <body>
-    <img src="assets/unicorn-royality-free.png" alt="Unicorn" class="unicorn-bg" />
-
+    <img src="https://i.ibb.co/6PqG733/unicorn-royality-free.png" alt="Unicorn" class="unicorn-bg" />
     <main class="container">
         <div class="logo-header">
-            <img src="assets/mandelbrot.png" alt="IVDY Group Logo">
+            <img src="https://i.ibb.co/zXp7D6C/mandelbrot.png" alt="IVDY Group Logo">
             <h1>IVDY Group Consulting</h1>
         </div>
 
@@ -464,9 +466,10 @@
                                     <li>Maximale Unabhängigkeit und Diskretion</li>
                                     <li>Umsetzungsplan inklusive – für eine effiziente und erfolgreiche Implementierung</li>
                                 </ul>
+                                <p>Im Preis enthalten ist die Erstellung sämtlicher erforderlicher Dokumente. Zeitnahe Terminfindung erst nach der Bezahlung.</p>
                             </div>
                         </td>
-                        <td class="item-total">4.597,00 €</td>
+                        <td class="item-total" id="base-price">4.597,00 €</td>
                     </tr>
                     <tr>
                         <td>
@@ -475,14 +478,14 @@
                                 <label for="optional-service">Optionale nachgelagerte Beratungsleistungen</label>
                             </div>
                         </td>
-                        <td class="item-total">+8.000,00 €</td>
+                        <td class="item-total" id="optional-price">+8.000,00 €</td>
                     </tr>
                     <tr>
-                        <td><strong>USt.</strong></td>
-                        <td class="item-total">873,43 €</td>
+                        <td class="total-label"><strong>USt. (19%)</strong></td>
+                        <td class="item-total" id="vat-amount">873,43 €</td>
                     </tr>
                     <tr>
-                        <td class="item-total"><strong>Summe</strong></td>
+                        <td class="total-label"><strong>Summe</strong></td>
                         <td class="item-total"><strong id="total-sum">5.470,43 €</strong></td>
                     </tr>
                 </tbody>
@@ -537,7 +540,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=IHREN_API_KEY_HIER_EINFÜGEN&libraries=places"></script>
     <script>
-        // Datum dynamisch einfügen
+        // Funktion zur Formatierung des Datums
         function formatGermanDate(date) {
             return date.toLocaleDateString('de-DE', {
                 day: '2-digit',
@@ -545,6 +548,8 @@
                 year: 'numeric'
             });
         }
+        
+        // Funktion zum Hinzufügen von Geschäftstagen
         function addBusinessDays(date, days) {
             let result = new Date(date);
             let added = 0;
@@ -556,6 +561,38 @@
             }
             return result;
         }
+
+        // Preise und Steuersätze
+        const BASE_PRICE = 4597.00;
+        const OPTIONAL_PRICE = 8000.00;
+        const VAT_RATE = 0.19; // 19% Mehrwertsteuer
+
+        // Funktion zur Aktualisierung der Gesamtsumme
+        function updateTotal() {
+            const checkbox = document.getElementById('optional-service');
+            const vatElement = document.getElementById('vat-amount');
+            const totalElement = document.getElementById('total-sum');
+            
+            let subtotal = BASE_PRICE;
+            if (checkbox.checked) {
+                subtotal += OPTIONAL_PRICE;
+            }
+            
+            const currentVat = subtotal * VAT_RATE;
+            const totalSum = subtotal + currentVat;
+
+            vatElement.textContent = currentVat.toLocaleString('de-DE', {
+                style: 'currency',
+                currency: 'EUR'
+            });
+            
+            totalElement.textContent = totalSum.toLocaleString('de-DE', {
+                style: 'currency',
+                currency: 'EUR'
+            });
+        }
+
+        // Initialisierung bei DOM-Laden
         window.addEventListener('DOMContentLoaded', function() {
             const today = new Date();
             const ablauf = addBusinessDays(today, 3);
@@ -563,7 +600,7 @@
             document.getElementById('angebot-laeuft-ab').textContent = formatGermanDate(ablauf);
             updateTotal(); // Initial calculation on page load
 
-            // Initiiere Autovervollständigung für die Adresse
+            // Autovervollständigung für die Adresse initialisieren
             const addressInput = document.getElementById('address');
             const autocomplete = new google.maps.places.Autocomplete(addressInput, {
                 types: ['address'],
@@ -575,8 +612,6 @@
                     return;
                 }
                 document.getElementById('address').value = place.formatted_address;
-                // Optional: Weitere Felder basierend auf der ausgewählten Adresse füllen
-                // Beispiel: Land
                 for (const component of place.address_components) {
                     const componentType = component.types[0];
                     if (componentType === 'country') {
@@ -650,20 +685,6 @@
 
         function printOffer() {
             window.print();
-        }
-
-        function updateTotal() {
-            const checkbox = document.getElementById('optional-service');
-            const totalElement = document.getElementById('total-sum');
-            let baseTotal = 5470.43;
-            const optionalPrice = 8000.00;
-            if (checkbox.checked) {
-                baseTotal += optionalPrice;
-            }
-            totalElement.textContent = baseTotal.toLocaleString('de-DE', {
-                style: 'currency',
-                currency: 'EUR'
-            });
         }
     </script>
 </body>
