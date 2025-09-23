@@ -207,6 +207,10 @@
             background-color: white;
             cursor: crosshair;
             margin-bottom: 1rem;
+            /* Flexibel für Mobilgeräte */
+            width: 100%;
+            /* Feste Höhe für einheitliches Aussehen, wird von JS gesetzt */
+            height: auto; 
         }
 
         .signature-actions {
@@ -663,14 +667,28 @@
         const canvas = document.getElementById('signature-pad');
         const ctx = canvas.getContext('2d');
         let drawing = false;
-        canvas.width = 600;
-        canvas.height = 200;
+
+        // Funktion zur Anpassung der Canvas-Größe
+        function resizeCanvas() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = 200;
+        }
+
+        // Canvas-Größe beim Laden und bei Änderung der Fenstergröße anpassen
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('DOMContentLoaded', resizeCanvas);
+
         ctx.lineWidth = 2;
         ctx.lineCap = 'round';
         ctx.strokeStyle = '#000';
 
         function startPosition(e) {
             drawing = true;
+            // Stelle sicher, dass Touch-Events nicht scrollen
+            if (e.type === "touchstart") {
+                e.preventDefault();
+            }
             draw(e);
         }
 
@@ -682,14 +700,22 @@
         function draw(e) {
             if (!drawing) return;
             const rect = canvas.getBoundingClientRect();
-            const x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
-            const y = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+            let x, y;
+            if (e.touches) {
+                x = e.touches[0].clientX - rect.left;
+                y = e.touches[0].clientY - rect.top;
+            } else {
+                x = e.clientX - rect.left;
+                y = e.clientY - rect.top;
+            }
+
             ctx.lineTo(x, y);
             ctx.stroke();
             ctx.beginPath();
             ctx.moveTo(x, y);
         }
 
+        // Event-Listener für Maus und Touch
         canvas.addEventListener('mousedown', startPosition);
         canvas.addEventListener('mouseup', endPosition);
         canvas.addEventListener('mousemove', draw);
