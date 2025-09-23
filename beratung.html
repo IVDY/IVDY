@@ -426,11 +426,7 @@
                                 </ul>
                             </div>
                         </td>
-                        <td class="item-total">17.500,00 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Konzeptgebühr</strong></td>
-                        <td class="item-total">-5.000,00 €</td>
+                        <td class="item-total">4.597,00 €</td>
                     </tr>
                     <tr>
                         <td>
@@ -443,11 +439,11 @@
                     </tr>
                     <tr>
                         <td><strong>USt.</strong></td>
-                        <td class="item-total">2.375,00 €</td>
+                        <td class="item-total">873,43 €</td>
                     </tr>
                     <tr>
                         <td class="item-total"><strong>Summe</strong></td>
-                        <td class="item-total"><strong id="total-sum">14.875,00 €</strong></td>
+                        <td class="item-total"><strong id="total-sum">5.470,43 €</strong></td>
                     </tr>
                 </tbody>
             </table>
@@ -524,7 +520,7 @@
             const ablauf = addBusinessDays(today, 3);
             document.getElementById('angebot-erstellt').textContent = formatGermanDate(today);
             document.getElementById('angebot-laeuft-ab').textContent = formatGermanDate(ablauf);
-            document.getElementById('payment-link-container').style.display = "none";
+            updateTotal(); // Initial calculation on page load
         });
 
         // Signature Pad
@@ -574,10 +570,7 @@
                 alert("Bitte unterschreiben Sie, bevor Sie fortfahren.");
                 return;
             }
-            const signatureData = canvas.toDataURL('image/png');
-            console.log(signatureData);
-            document.getElementById('payment-link-container').style.display = 'block';
-            alert("Ihre Signatur wurde erfolgreich gespeichert. Sie können jetzt bezahlen.");
+            window.location.href = "https://buy.stripe.com/9AQbLR6G995r2ZybIZ";
         }
 
         function downloadPDF() {
@@ -598,7 +591,7 @@
         function updateTotal() {
             const checkbox = document.getElementById('optional-service');
             const totalElement = document.getElementById('total-sum');
-            let baseTotal = 14875.00;
+            let baseTotal = 5470.43;
             const optionalPrice = 8000.00;
             if (checkbox.checked) {
                 baseTotal += optionalPrice;
